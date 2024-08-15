@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Markdown Editor</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/styleMD.css".css">
+    <link rel="icon" href="./icon/md.svg"/>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+  <body>
+    <header id="header">
+      <h1 class="markTitle">Markdown Editor</h1>
+      <div class="name-group">
+        <img src="./icon/file.svg" alt="" />
+        <input type="text" placeholder="Nome do Arquivo" id="name-file" />
+      </div>
+      <button id="download" ><img src="./icon/floppy.svg" alt=""  />Salvar</button>
+    </header>
+    <main class="container">
+      <div class="editor">
+        <h2 class="secondary-title">EDITAR</h2>
+        <textarea id="editor-content" class="markdown-body"></textarea>
+      </div>
+      <div class="preview">
+        <h2 class="secondary-title">VISUALIZAR</h2>
+        <div id="preview-content" class="markdown-body"></div>
+      </div>
+    </main>
+    <script src="./js/script.js"></script>
+    <script src="./js/marked.js"></script>
+  </body>
+</html>
