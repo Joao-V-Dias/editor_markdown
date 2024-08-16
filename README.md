@@ -30,7 +30,7 @@ O **Markdown Editor** é um projeto desenvolvido para aprender mais sobre o uso 
 
 Veja como o projeto se parece:
 
-![Screenshot do Markdown Editor](https://raw.githubusercontent.com/Joao-V-Dias/editor_markdown/main/icon/image.png?token=GHSAT0AAAAAACUS6BJLT2B7O5GHDHJOEISIZV6UE7A)
+![Screenshot do Markdown Editor](https://github.com/Joao-V-Dias/editor_markdown/blob/main/icon/image.png?raw=true)
 
 ---
 
