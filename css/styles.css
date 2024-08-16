@@ -78,6 +78,13 @@ button:hover {
   width: 50vw;
   border: 1px solid;
   overflow: hidden;
+  border: 2px solid #2c2d31;
+}
+
+.active{
+  transition: 0.3s;
+  background-color: #272931;
+  border-color: #be4f2a;
 }
 
 .secondary-title {

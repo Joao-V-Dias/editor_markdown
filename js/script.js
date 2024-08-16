@@ -1,22 +1,52 @@
-document.getElementById('download').addEventListener('click', function () {
-  // Cria uma variavel para armazenar o texto
-  let text = document.getElementById("editor-content").value;
+document.getElementById("download").addEventListener("click", function () {
+  
+  const text = document.getElementById("editor-content").value;
+  const a = document.createElement("a");
+  const blob = new Blob([text], { type: "text/markdown" });
 
-  // Cria um link para download do texto
-  let a = document.createElement("a");
-
-  // Cria um Blob com o texto
-  let blob = new Blob([text], {type: "text/plain"})
-
-  // Configura o link para o tipo de arquivo como texto
   a.href = window.URL.createObjectURL(blob);
-
-  a.download = (document.getElementById("name-file").value || "arquivo") + ".md";
-
-  // Simula o click do link para iniciar o download
+  a.download =
+    (document.getElementById("name-file").value || "arquivo") + ".md";
   a.click();
 
-  // Libera a memória do link após download
   URL.revokeObjectURL(a.href);
-})
+});
 
+document
+  .getElementById("editor-content")
+  .addEventListener("dragenter", function () {
+    document.querySelector(".editor").classList.toggle("active");
+  });
+
+document
+  .getElementById("editor-content")
+  .addEventListener("dragleave", function () {
+    document.querySelector(".editor").classList.toggle("active");
+  });
+
+document
+  .getElementById("editor-content")
+  .addEventListener("drop", function (e) {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    const fileName = file.name.split(".");
+    const extension = fileName[fileName.length - 1];
+
+    if (extension == "md") {
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        document.getElementById("editor-content").value = reader.result;
+        markdownLoad(reader.result);
+      };
+
+      reader.onerror = function () {
+        alert("Erro ao ler o arquivo.");
+      };
+
+      reader.readAsText(file);
+    } else {
+      alert("Este arquivo não é Markdown.");
+    }
+    document.querySelector(".editor").classList.toggle("active");
+  });
